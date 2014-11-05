@@ -2,6 +2,10 @@
 
 class Ajax extends CI_Controller {
 
+	/**
+	 * search 			Search landlords and landlord groups (case sensitive)
+	 * @return array 	Json array for use with autocomplete
+	 */
 	public function search(){
 		$terms = $this->input->get('term');
 		$terms = explode(' ', $terms);
