@@ -69,7 +69,7 @@ class Ajax extends CI_Controller {
 			$year[] = $this->input->post('startYear');
 		}
 		if($this->input->post('endYear')){
-			$year[] = $this->input->post('startYear');
+			$year[] = $this->input->post('endYear');
 		}
 		if(count($year)){
 			$year = array_unique($year);
