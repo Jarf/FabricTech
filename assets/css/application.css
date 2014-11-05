@@ -1,0 +1,68 @@
+body{
+	background-color: #6E92A1;
+	color: #ffffff;
+}
+
+input, select{
+	color: #000000;
+}
+
+.container-main{
+	background-color: #27556C;
+}
+
+.row-header, .row-footer{
+	padding: 10px;
+	background-color: #032536;
+	z-index: 101;
+}
+
+.row-header{
+	margin-bottom: 1px;
+}
+.row-footer{
+	margin-top: 15px;
+}
+
+.whiteBorderBottom{
+	border-style: solid;
+	border-color: #ffffff;
+	border-width: 0 0 1px 0;
+}
+
+.chartFilters{
+	margin-top: 5px;
+}
+
+.chartFilters .chosen-choices, .chartFilters .chosen-single{
+	height: 30px;
+	max-height: 30px;
+	border-radius: 0;
+	overflow-y: auto;
+}
+
+.chartFilters .chosen-single{
+	padding-top: 2px;
+}
+
+.chartFiltersToggle{
+	cursor: pointer;
+	background-color: #27556C;
+	margin-top: -1px;
+	padding: 5px 25px 5px 25px;
+	border-style: solid;
+	border-color: #ffffff;
+	border-width: 0 1px 1px 1px;
+}
+
+.chartDrawContainer .chartDrawTemplate{
+	display: none;
+}
+
+.chartDrawContainer .panel{
+	margin-top: 10px;
+}
+
+.chartDrawContainer .panel-body{
+	color: #000000;
+}
