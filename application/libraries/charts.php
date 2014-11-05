@@ -10,6 +10,29 @@ class Charts
 		$this->db =& $this->ci->db;
 	}
 
+	public function searchData($terms = false){
+		// Select
+		$this->db->select('tblLandlord.LandlordID, tblLandlordGroup.LandlordGroupID, tblLandlord.LandlordName, tblLandlordGroup.LandlordGroupName');
+		// Join
+		$this->db->join('tblLandlordGroupRel', 'tblLandlordGroupRel.LandlordID = tblLandlord.LandlordID');
+		$this->db->join('tblLandlordGroup', 'tblLandlordGroup.LandlordGroupID = tblLandlordGroupRel.LandlordGroupID');
+		// Where
+		if(is_array($terms)){
+			foreach($terms as $term){
+				$this->db->like('tblLandlord.LandlordName', $term);
+				$this->db->or_like('tblLandlordGroup.LandlordGroupName', $term);
+			}
+		}
+		// Get
+		$results = $this->db->get('tblLandlord')->result_array();
+
+		return $results;
+	}
+
+	/**
+	 * getFilterData 		Return values for filters
+	 * @return array 		Return array containing landlords, landlordsgroups, relations (groupip => landlordid) and year range
+	 */
 	public function getFilterData()
 	{
 		// Return array
@@ -21,13 +44,7 @@ class Charts
 		);
 
 		// Get landlords and groups
-		// Select
-		$this->db->select('tblLandlord.LandlordID, tblLandlordGroup.LandlordGroupID, tblLandlord.LandlordName, tblLandlordGroup.LandlordGroupName');
-		// Join
-		$this->db->join('tblLandlordGroupRel', 'tblLandlordGroupRel.LandlordID = tblLandlord.LandlordID');
-		$this->db->join('tblLandlordGroup', 'tblLandlordGroup.LandlordGroupID = tblLandlordGroupRel.LandlordGroupID');
-		// Get
-		$results = $this->db->get('tblLandlord')->result_array();
+		$results = $this->searchData();
 		// Format results
 		foreach($results as $result){
 			$return['landlords'][$result['LandlordID']] = $result['LandlordName'];

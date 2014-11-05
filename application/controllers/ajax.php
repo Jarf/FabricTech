@@ -2,6 +2,41 @@
 
 class Ajax extends CI_Controller {
 
+	public function search(){
+		$terms = $this->input->get('term');
+		$terms = explode(' ', $terms);
+		$terms = array_map('trim', $terms);
+		$terms = array_filter($terms);
+
+		$this->load->library('charts');
+		$search = $this->charts->searchData($terms);
+		$landlords = array();
+		$landlordgroups = array();
+		foreach($search as $result){
+			foreach($terms as $term){
+				if(strpos($result['LandlordName'], $term) !== false){
+					$landlords[$result['LandlordID']] = $result['LandlordName'];
+				}
+				if(strpos($result['LandlordGroupName'], $term) !== false){
+					$landlordgroups[$result['LandlordGroupID']] = $result['LandlordGroupName'];
+				}
+			}
+		}
+		$landlords = array_unique($landlords);
+		$landlordgroups = array_unique($landlordgroups);
+
+		$results = array();
+		foreach($landlords as $landlordid => $landlordname){
+			$results[] = array('id' => $landlordid, 'value' => $landlordname, 'label' => $landlordname, 'type' => 'landlord');
+		}
+		foreach($landlordgroups as $landlordgroupid => $landlordgroupname){
+			$results[] = array('id' => $landlordgroupid, 'value' => $landlordgroupname, 'label' => $landlordgroupname, 'type' => 'group');
+		}
+
+		$this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($results));
+	}
+
 	/**
 	 * getData 				Retrieve chart data
 	 * @return array 		Json array containing chart data

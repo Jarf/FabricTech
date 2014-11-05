@@ -83,6 +83,37 @@
 		self.filters = filters;
 	}
 
+	/**
+	 * clearFilters  		Clear selected values from filter inputs
+	 */
+	chartFilters.prototype.clearFilters = function(){
+		var self = this;
+
+		self.elements.$filtersInputLandlordGroup.val('').trigger('chosen:updated');
+		self.elements.$filtersInputLandlord.val('').trigger('chosen:updated');
+		self.elements.$filtersInputStartYear.val('').trigger('chosen:updated');
+		self.elements.$filtersInputEndYear.val('').trigger('chosen:updated');
+	}
+
+	/**
+	 * selectFilters 		Select specific filters
+	 * @param  string type 	Accepts 'landlord' or 'group'
+	 * @param  numeric id 	ID of the entity to select
+	 */
+	chartFilters.prototype.selectFilters = function(type, id){
+		var self = this;
+
+		if(type === 'landlord'){
+			self.elements.$filtersInputLandlord.val(id).trigger('chosen:updated');
+		}else if(type === 'group'){
+			self.elements.$filtersInputLandlordGroup.val(id).trigger('chosen:updated');
+		}
+		self.getFilters();
+	}
+
+	/**
+	 * submitFilters 		Pass filters to createCharts plugin to draw charts
+	 */
 	chartFilters.prototype.submitFilters = function(){
 		var self = this;
 

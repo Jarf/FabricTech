@@ -26,7 +26,7 @@ input, select{
 	height: 40px;
 }
 
-.chartHeaderImportLoading, .chartHeaderImportSuccess, .chartDrawContainer .chartDrawTemplate{
+.chartHeaderImportLoading, .chartHeaderImportSuccess, .chartDrawContainer .chartDrawTemplate, .chartFilters{
 	display: none;
 }
 

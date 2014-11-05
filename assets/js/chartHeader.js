@@ -13,8 +13,10 @@
 		self.elements.$chartHeaderButtonImport = self.$element.find(self.options.chartHeaderButtonImport);
 		self.elements.$chartHeaderButtonImportLoading = self.$element.find(self.options.chartHeaderButtonImportLoading);
 		self.elements.$chartHeaderButtonImportSuccess = self.$element.find(self.options.chartHeaderButtonImportSuccess);
+		self.elements.$chartHeaderInputSearch = self.$element.find(self.options.chartHeaderInputSearch);
 		self.paths = {};
 		self.paths.ajaxImportData = self.options.ajaxPathImportData;
+		self.paths.ajaxSearch = self.options.ajaxPathSearch;
 
 		// On init
 		// Buttons
@@ -27,6 +29,17 @@
 			e.preventDefault();
 
 			self.refreshPage();
+		});
+
+		// Autocomplete on search
+		self.elements.$chartHeaderInputSearch.autocomplete({
+			source: self.paths.ajaxSearch,
+			minLength: 0,
+			select: function( event, ui ){
+				$('.chartFiltersContainer').chartFilters('clearFilters');
+				$('.chartFiltersContainer').chartFilters('selectFilters', ui.item.type, ui.item.id);
+				$('.chartFiltersContainer').chartFilters('submitFilters');
+			}
 		});
 	};
 
@@ -54,6 +67,9 @@
 		});
 	}
 
+	/**
+	 * refreshPage 		Reload currently viewed page
+	 */
 	chartHeader.prototype.refreshPage = function(){
 		location.reload();
 	}
@@ -92,8 +108,10 @@
 		'chartHeaderButtonImport' : '.chartHeaderImport',
 		'chartHeaderButtonImportLoading' : '.chartHeaderImportLoading',
 		'chartHeaderButtonImportSuccess' : '.chartHeaderImportSuccess',
+		'chartHeaderInputSearch' : '.chartHeaderSearch',
 		// Ajax paths
-		'ajaxPathImportData' : '/index.php/ajax/importData'
+		'ajaxPathImportData' : '/index.php/ajax/importData',
+		'ajaxPathSearch' : '/index.php/ajax/search'
 	};
 }(jQuery));
 $(document).ready(function(){
