@@ -13,7 +13,7 @@
 		self.elements.$chartDrawTemplate = self.$element.find(self.options.chartDrawTemplate);
 		self.elements.$chartDrawGraphsContainer = self.$element.find(self.options.chartDrawGraphsContainer);
 		self.paths = {};
-		self.paths.ajaxGetData = self.options.ajaxPathGetData;
+		self.paths.ajaxGetData = self.options.baseUrl + self.options.ajaxPathGetData;
 		self.chartData = {};
 	};
 
@@ -191,7 +191,7 @@
 		'chartDrawTemplate' : '.chartDrawTemplate',
 		'chartDrawGraphsContainer' : '.chartDrawGraphsContainer',
 		// Ajax paths
-		'ajaxPathGetData' : '/index.php/ajax/getData'
+		'ajaxPathGetData' : 'index.php/ajax/getData'
 	};
 }(jQuery));
 $(document).ready(function(){

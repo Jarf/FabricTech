@@ -7,7 +7,6 @@ class Main extends CI_Controller {
 		$data = array();
 		$this->load->library('charts');
 		$data['filterData'] = $this->charts->getFilterData();
-		$data['filterData']['jsonGroup'] = json_encode($data['filterData']['groupings']);
 		$this->load->view("layout/header");
 		$this->load->view("filters", $data);
 		$this->load->view("main");

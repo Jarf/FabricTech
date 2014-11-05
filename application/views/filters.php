@@ -1,6 +1,6 @@
-<script src="/assets/js/chartFilters.js"></script>
+<script src="<?=base_url()?>assets/js/chartFilters.js"></script>
 
-<div class="chartFiltersContainer" data-group-rel=<?=$filterData['jsonGroup']?>>
+<div class="chartFiltersContainer" data-base-url=<?=base_url()?>>
 	<div class="row chartFilters">
 		<div class="col-sm-4 text-center">
 			<select class="chartFiltersLandlordGroup" data-placeholder="Landlord Group" multiple>

@@ -4,22 +4,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<!-- Load CSS and JS -->
-		<script src="/assets/js/jquery-1.11.1.min.js"></script>
-		<script src="/assets/js/jquery-ui.min.js"></script>
-		<script src="/assets/js/bootstrap.min.js"></script>
-		<script src="/assets/js/Chart.min.js"></script>
-		<script src="/assets/js/chosen.jquery.min.js"></script>
-		<script src="/assets/js/chartHeader.js"></script>
-		<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/chosen.min.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/application.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/jquery-ui.min.css">
+		<script src="<?=base_url()?>assets/js/jquery-1.11.1.min.js"></script>
+		<script src="<?=base_url()?>assets/js/jquery-ui.min.js"></script>
+		<script src="<?=base_url()?>assets/js/bootstrap.min.js"></script>
+		<script src="<?=base_url()?>assets/js/Chart.min.js"></script>
+		<script src="<?=base_url()?>assets/js/chosen.jquery.min.js"></script>
+		<script src="<?=base_url()?>assets/js/chartHeader.js"></script>
+		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/chosen.min.css">
+		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/application.css">
+		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/jquery-ui.min.css">
 
 		<title>Fabric Tech Assessment</title>
 	</head>
 	<body>
-		<div class="container container-main chartHeaderContainer">
+		<div class="container container-main chartHeaderContainer" data-base-url=<?=base_url()?>>
 			<div class="row row-header">
 				<div class="col-xs-4 text-left">
 					<h4>Costs Chart Viewer</h4>

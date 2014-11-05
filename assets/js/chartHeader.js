@@ -15,8 +15,8 @@
 		self.elements.$chartHeaderButtonImportSuccess = self.$element.find(self.options.chartHeaderButtonImportSuccess);
 		self.elements.$chartHeaderInputSearch = self.$element.find(self.options.chartHeaderInputSearch);
 		self.paths = {};
-		self.paths.ajaxImportData = self.options.ajaxPathImportData;
-		self.paths.ajaxSearch = self.options.ajaxPathSearch;
+		self.paths.ajaxImportData = self.options.baseUrl + self.options.ajaxPathImportData;
+		self.paths.ajaxSearch = self.options.baseUrl + self.options.ajaxPathSearch;
 
 		// On init
 		// Buttons
@@ -110,8 +110,8 @@
 		'chartHeaderButtonImportSuccess' : '.chartHeaderImportSuccess',
 		'chartHeaderInputSearch' : '.chartHeaderSearch',
 		// Ajax paths
-		'ajaxPathImportData' : '/index.php/ajax/importData',
-		'ajaxPathSearch' : '/index.php/ajax/search'
+		'ajaxPathImportData' : 'index.php/ajax/importData',
+		'ajaxPathSearch' : 'index.php/ajax/search'
 	};
 }(jQuery));
 $(document).ready(function(){

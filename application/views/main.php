@@ -1,6 +1,6 @@
-<script src="/assets/js/chartDraw.js"></script>
+<script src="<?=base_url()?>assets/js/chartDraw.js"></script>
 
-<div class="chartDrawContainer">
+<div class="chartDrawContainer" data-base-url=<?=base_url()?>>
 	<div class="chartDrawTemplate row">
 		<div class="col-xs-12">
 			<div class="panel panel-primary">
