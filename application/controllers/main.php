@@ -14,12 +14,6 @@ class Main extends CI_Controller {
 		$this->load->view("layout/footer");
 	}
 
-	public function import()
-	{
-		$this->load->library('importer');
-		$this->importer->import();
-	}
-
 }
 
 /* End of file main.php */

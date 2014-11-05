@@ -20,6 +20,16 @@ input, select{
 .row-header{
 	margin-bottom: 1px;
 }
+
+.chartHeaderImport, .chartHeaderImportLoading, .chartHeaderImportSuccess{
+	width: 100px;
+	height: 40px;
+}
+
+.chartHeaderImportLoading, .chartHeaderImportSuccess, .chartDrawContainer .chartDrawTemplate{
+	display: none;
+}
+
 .row-footer{
 	margin-top: 15px;
 }
@@ -53,10 +63,6 @@ input, select{
 	border-style: solid;
 	border-color: #ffffff;
 	border-width: 0 1px 1px 1px;
-}
-
-.chartDrawContainer .chartDrawTemplate{
-	display: none;
 }
 
 .chartDrawContainer .panel{

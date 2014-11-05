@@ -2,6 +2,10 @@
 
 class Ajax extends CI_Controller {
 
+	/**
+	 * getData 				Retrieve chart data
+	 * @return array 		Json array containing chart data
+	 */
 	public function getData()
 	{
 		// Get filters via POST data
@@ -42,6 +46,18 @@ class Ajax extends CI_Controller {
 		$data = $this->charts->getChartData($landlordid, $landlordgroupid, $year);
 		$this->output->set_content_type('application/json');
 		$this->output->set_output(json_encode($data));
+	}
+
+	/**
+	 * importData 		Import data from CSV file
+	 * @return boolean	Returns true on success
+	 */
+	public function importData()
+	{
+		$this->load->library('importer');
+		$return = $this->importer->import();
+		$this->output->set_content_type('application/json');
+		$this->output->set_output(json_encode($return));
 	}
 
 }
